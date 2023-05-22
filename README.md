@@ -121,17 +121,18 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
 ## 6. Configuracion de IPTABLES
     ``` iptables -t nat -A PREROUTING -i eno3 -p tcp -d 172.20.3.172 --dport 9090 -j DNAT --to 172.17.0.5:9090 ```
     
-  Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) del firewall de Linux. Aquí está la explicación de cada parte del comando:
+  Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) del firewall de Linux.
 
-iptables: Es el comando para manipular las reglas del firewall en sistemas basados en Linux.
--t nat: Especifica que se está trabajando con la tabla "nat" que maneja las reglas de traducción de direcciones de red.
--A PREROUTING: Agrega una regla a la cadena PREROUTING. Esta cadena se aplica antes de que los paquetes sean ruteados.
--i eno3: Especifica la interfaz de red de entrada por donde llegarán los paquetes.
--p tcp: Especifica el protocolo TCP para los paquetes que coincidan con esta regla.
--d 172.20.3.172: Establece la dirección de destino de los paquetes que coincidan con esta regla.
---dport 9090: Especifica el puerto de destino al que deben llegar los paquetes.
--j DNAT: Indica que los paquetes que coincidan con esta regla deben ser redireccionados.
---to 172.17.0.5:9090: Especifica la dirección IP y el puerto al que se redirigirán los paquetes.
+   1. iptables: Es el comando para manipular las reglas del firewall en sistemas basados en Linux.
+   2. -t nat: Especifica que se está trabajando con la tabla "nat" que maneja las reglas de traducción de direcciones de red.
+   3. -A PREROUTING: Agrega una regla a la cadena PREROUTING. Esta cadena se aplica antes de que los paquetes sean ruteados.
+   4. -i eno3: Especifica la interfaz de red de entrada por donde llegarán los paquetes.
+   5. -p tcp: Especifica el protocolo TCP para los paquetes que coincidan con esta regla.
+   6. -d 172.20.3.172: Establece la dirección de destino de los paquetes que coincidan con esta regla.
+   7. --dport 9090: Especifica el puerto de destino al que deben llegar los paquetes.
+   8. -j DNAT: Indica que los paquetes que coincidan con esta regla deben ser redireccionados.
+   9. --to 172.17.0.5:9090: Especifica la dirección IP y el puerto al que se redirigirán los paquetes.
+
 En resumen, este comando de iptables redirige los paquetes TCP que llegan a la interfaz de red "eno3" con dirección de destino 172.20.3.172 en el puerto 9090 hacia la dirección IP 172.17.0.5 en el puerto 9090.
   
 
