@@ -1,11 +1,19 @@
 # Proceso para despliegue de aplicación Checkmig en Docker
 
-## 1. Archivo Dockerfile
+## 📋 Tabla de Contenido
+- [Archivo Dockerfile](#archivo-dockerfile)
+- [Dockerfile del proyecto](#dockerfile-del-proyecto)
+- [Subir imagen a Docker Hub](#subir-imagen-a-docker-hub)
+- [Creación de Imagen](#creación-de-imagen)
+- [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#cómo-crear-una-imagen-a-partir-de-una-imagen-existente-en-dockerhub)
+- [Configuración de IPTABLES](#configuración-de-iptables)
+
+## 1. Archivo Dockerfile{#archivo-dockerfile}
 
 Un archivo Dockerfile es un archivo de texto que contiene instrucciones y comandos para construir una imagen de Docker. Es utilizado por Docker para automatizar el proceso de creación de imágenes y la configuración del entorno dentro de un contenedor. El Dockerfile especifica qué software y dependencias se deben incluir en la imagen, así como cómo se deben configurar y ejecutar cuando se inicie un contenedor basado en esa imagen. En resumen, un Dockerfile proporciona una forma reproducible de definir y construir entornos de contenedor.
 [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
 
-## 2. Dockerfile del proyecto 
+## 2. Dockerfile del proyecto {#dockerfile-del-proyecto}
 ```markdown
 
 
@@ -59,7 +67,7 @@ CMD ["/sbin/init"]
 
 ```
 
-## 3. Subir imagen a Docker.hub
+## 3. Subir imagen a Docker.hub {#subir-imagen-a-docker-hub}
 Para subir una imagen a Docker Hub, puedes seguir los siguientes pasos:
 
   1. Primero, asegúrate de tener una cuenta en [Docker Hub](https://hub.docker.com/). Si no tienes una, puedes crear una de forma gratuita.
@@ -119,7 +127,7 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
 
 
 ## 6. Configuracion de IPTABLES
-    ``` iptables -t nat -A PREROUTING -i eno3 -p tcp -d 172.20.3.172 --dport 9090 -j DNAT --to 172.17.0.5:9090 ```
+     iptables -t nat -A PREROUTING -i eno3 -p tcp -d 172.20.3.172 --dport 9090 -j DNAT --to 172.17.0.5:9090 
     
   Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) del firewall de Linux.
 
