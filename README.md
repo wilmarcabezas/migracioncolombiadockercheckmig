@@ -58,3 +58,24 @@ EXPOSE 9090
 CMD ["/sbin/init"]
 
 ```
+
+## 3. Subir imagen a docker.hub
+Para subir una imagen a Docker Hub, puedes seguir los siguientes pasos:
+
+  1. Primero, asegúrate de tener una cuenta en [Docker Hub](https://hub.docker.com/). Si no tienes una, puedes crear una de forma gratuita.
+
+  2. Construye la imagen de Docker que deseas subir en tu entorno local utilizando un archivo Dockerfile o cualquier otro método.
+
+  3. Asegúrate de etiquetar la imagen con el nombre de usuario de Docker Hub y el nombre del repositorio al que deseas subir la imagen. Por ejemplo, si tu nombre de usuario en Docker Hub es "ejemplo" y deseas subir la imagen a un repositorio llamado "mi-aplicacion", debes etiquetar la imagen como `ejemplo/mi-aplicacion`.
+
+  4. Inicia sesión en Docker Hub desde tu línea de comandos utilizando el siguiente comando: docker login
+  5. Ingresa tus credenciales de Docker Hub cuando se te solicite.
+
+5. Sube la imagen etiquetada a Docker Hub utilizando el siguiente comando: docker push ejemplo/mi-aplicacion
+
+Esto enviará la imagen a tu repositorio en Docker Hub.
+
+Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://docs.docker.com/docker-hub/) para obtener más detalles sobre cómo subir una imagen a Docker Hub.
+
+
+
