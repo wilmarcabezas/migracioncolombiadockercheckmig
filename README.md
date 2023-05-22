@@ -81,32 +81,29 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
 ## 4. Creacion de Imagen
 
    1. Descomprimimos el .zip checkmig.zip: 
-     ```bash
-     unzip checkmig.zip
-     ```
+     ``` unzip checkmig.zip  ```
+     
+   2. Entramos en la carpeta correspondiente:
+      ``` cd netcore7build  ```
+            
+   3. Creamos la imagen: 
+      ``` docker build -t checkmig . ```
 
-   2. Entramos en la carpeta correspondiente
-      cd netcore7build
-Creamos la imagen
-docker build -t checkmig .
+   4. Iniciamos el contenedor (cambiar la imagen_id por el id de la iamgen): 
+    ```  docker run -it -d -P --privileged=true image_id /sbin/init  ```
 
-Iniciamos el contenedor (cambiar la imagen_id por el id de la iamgen)
-docker run -it -d -P --privileged=true image_id /sbin/init 
+   5. Entramos en el contenedor (cambiar contenedor_id por el id de la contenedor) 
+    ``` docker exec -ti contenedor_id /bin/bash ```
 
-Entramos en el contenedor (cambiar contenedor_id por el id de la contenedor)
-docker exec -ti contenedor_id /bin/bash
-
-Para reiniciar nginx
-systemctl restart nginx
+   6. Para reiniciar nginx:
+    ``` systemctl restart nginx ```
  
-Para iniciar o reiniciar kestrel-checkmig
-systemctl restart kestrel-checkmig-1.0.23086.23 
+   7. Para iniciar o reiniciar kestrel-checkmig:
+    ``` systemctl restart kestrel-checkmig-1.0.23086.23 ```
 
-Posible error: no se copia la carpeta 1.0.23086.23
-
-Si esto pasa:
-cd /var/www/checkmig
-scp -r usuario@172.16.0.1:/netcore7/1.0.23086.23 .
+   8. Posible error: no se copia la carpeta 1.0.23086.23
+      ``` cd /var/www/checkmig  ```
+      ``` scp -r usuario@172.16.0.1:/netcore7/1.0.23086.23 .```
 
 
 
