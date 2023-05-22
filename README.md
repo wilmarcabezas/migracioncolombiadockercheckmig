@@ -8,7 +8,7 @@
 - [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#cómo-crear-una-imagen-a-partir-de-una-imagen-existente-en-dockerhub)
 - [Configuración de IPTABLES](#configuración-de-iptables)
 
-## 1. [Archivo Dockerfile]{#archivo-dockerfile}
+## 1. <a name='dockerfile-del-proyecto'>Archivo Dockerfile</a>
 
 Un archivo Dockerfile es un archivo de texto que contiene instrucciones y comandos para construir una imagen de Docker. Es utilizado por Docker para automatizar el proceso de creación de imágenes y la configuración del entorno dentro de un contenedor. El Dockerfile especifica qué software y dependencias se deben incluir en la imagen, así como cómo se deben configurar y ejecutar cuando se inicie un contenedor basado en esa imagen. En resumen, un Dockerfile proporciona una forma reproducible de definir y construir entornos de contenedor.
 [https://docs.docker.com/engine/reference/builder/](https://docs.docker.com/engine/reference/builder/)
@@ -67,7 +67,7 @@ CMD ["/sbin/init"]
 
 ```
 
-## 3. [Subir imagen a Docker.hub] (#subir-imagen-a-docker-hub)
+## 3. <a name='subir-imagen-a-docker-hub'>Subir imagen a Docker.hub</a>
 Para subir una imagen a Docker Hub, puedes seguir los siguientes pasos:
 
   1. Primero, asegúrate de tener una cuenta en [Docker Hub](https://hub.docker.com/). Si no tienes una, puedes crear una de forma gratuita.
