@@ -7,6 +7,7 @@
 - [Creación de Imagen](#creación-de-imagen)
 - [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#existente-en-dockerhub)
 - [Configuración de IPTABLES](#configuración-de-iptables)
+- [Actualizar version](#actualizar)
 
 ## 1. <a name='dockerfile-del-proyecto'>Archivo Dockerfile</a>
 
@@ -143,4 +144,8 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
 
 En resumen, este comando de iptables redirige los paquetes TCP que llegan a la interfaz de red "eno3" con dirección de destino 172.20.3.172 en el puerto 9090 hacia la dirección IP 172.17.0.5 en el puerto 9090.
   
-
+## 7. <a name='actualizar'>Actualizar version</a>
+      
+  Basta con reemplazar en usr/share/nginx/html/ los archivos de la nueva version y correr los comandos:
+  ``` systemctl restart kestrel-checkmig-1.0.23086.23 ```
+  ``` systemctl restart nginx ```
