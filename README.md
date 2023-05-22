@@ -5,7 +5,7 @@
 - [Dockerfile del proyecto](#dockerfile-del-proyecto)
 - [Subir imagen a Docker Hub](#subir-imagen-a-docker-hub)
 - [Creación de Imagen](#creación-de-imagen)
-- [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#cómo-crear-una-imagen-a-partir-de-una-imagen-existente-en-dockerhub)
+- [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#existente-en-dockerhub)
 - [Configuración de IPTABLES](#configuración-de-iptables)
 
 ## 1. <a name='dockerfile-del-proyecto'>Archivo Dockerfile</a>
@@ -86,7 +86,7 @@ Esto enviará la imagen a tu repositorio en Docker Hub.
 Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://docs.docker.com/docker-hub/) para obtener más detalles sobre cómo subir una imagen a Docker Hub.
 
 
-## 4. Creacion de Imagen
+## 4. <a name='creación-de-imagen'>Creacion de Imagen</a>
 
    1. Descomprimimos el .zip checkmig.zip: 
      ``` unzip checkmig.zip  ```
@@ -114,7 +114,7 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
       ``` scp -r usuario@172.16.0.1:/netcore7/1.0.23086.23 .```
 
 
-## 5. Como crear la imagen a partir de una imagen existente en Docker.Hub
+## 5. <a name='existente-en-dockerhub'>Como crear la imagen a partir de una imagen existente en Docker.Hub</a>
 
    Debido a la infraestructura de Migracion Colombia, no fue posible crear la imagen de docker a partir del Dockerfile. Ya que aunque finalmente permitio la descarga de paquetes, una vez se requiere descargar directamente desde el contenedor se presenta un error, el cual se soluciona descargando y ejecutando la imagen previamente desplegada en [Docker Hub](https://hub.docker.com/).
       
@@ -126,7 +126,7 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
       Si deseas obtener más información sobre cómo ejecutar imágenes en Docker, puedes consultar la [documentación oficial de Docker](https://docs.docker.com/engine/reference/commandline/run/).
 
 
-## 6. Configuracion de IPTABLES
+## 6. <a name='configuración-de-iptables'>Configuracion de IPTABLES</a>
      iptables -t nat -A PREROUTING -i eno3 -p tcp -d 172.20.3.172 --dport 9090 -j DNAT --to 172.17.0.5:9090 
     
   Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) del firewall de Linux.
