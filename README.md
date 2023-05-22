@@ -108,7 +108,7 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
 
 ## 5. Como crear la imagen a partir de una imagen existente en Docker.Hub
 
-      Debido a la infraestructura de Migracion Colombia, no fue posible crear la imagen de docker a partir del Dockerfile. Ya que aunque finalmente permitio la descarga de paquetes, una vez se requiere descargar directamente desde el contenedor se presenta un error, el cual se soluciona descargando y ejecutando la imagen previamente desplegada en [Docker Hub](https://hub.docker.com/).
+   Debido a la infraestructura de Migracion Colombia, no fue posible crear la imagen de docker a partir del Dockerfile. Ya que aunque finalmente permitio la descarga de paquetes, una vez se requiere descargar directamente desde el contenedor se presenta un error, el cual se soluciona descargando y ejecutando la imagen previamente desplegada en [Docker Hub](https://hub.docker.com/).
       
 
    1. Utiliza el siguiente comando para descargar la imagen desde Docker Hub y ejecutar un contenedor basado en ella:  
