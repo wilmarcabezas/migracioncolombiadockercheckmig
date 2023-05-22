@@ -67,7 +67,7 @@ CMD ["/sbin/init"]
 
 ```
 
-## 3. [Subir imagen a Docker.hub] {#subir-imagen-a-docker-hub}
+## 3. [Subir imagen a Docker.hub] (#subir-imagen-a-docker-hub)
 Para subir una imagen a Docker Hub, puedes seguir los siguientes pasos:
 
   1. Primero, asegúrate de tener una cuenta en [Docker Hub](https://hub.docker.com/). Si no tienes una, puedes crear una de forma gratuita.
