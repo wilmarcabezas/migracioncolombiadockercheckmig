@@ -1,4 +1,4 @@
-# Proceso para despliegue de aplicación Checkmig en Docker
+# Proceso para despliegue de aplicación Checkmig en Docker.
 
 ## 📋 Tabla de Contenido
 - [Archivo Dockerfile](#archivo-dockerfile)
