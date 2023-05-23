@@ -25,18 +25,18 @@ forma reproducible de definir y construir entornos de contenedor.
 FROM registry.access.redhat.com/ubi8/ubi:latest
 
 # Ejecuta el comando dnf update en el contenedor, lo cual actualiza el sistema operativo 
-dentro del contenedor.
+# dentro del contenedor.
 RUN dnf -y update
 
 # Instala los paquetes nginx, net-tools, nano, dotnet-sdk-7.0, openssh y openssh-clients utilizando 
-el comando dnf install.
+# el comando dnf install.
 RUN dnf -y install nginx net-tools nano dotnet-sdk-7.0 openssh openssh-clients
 
 # Copia el archivo startcheckmig-1.0.23086.23.sh al directorio /usr/share/nginx/html dentro del contenedor.
 COPY startcheckmig-1.0.23086.23.sh /usr/share/nginx/html
 
 # Cambia los permisos del archivo startcheckmig-1.0.23086.23.sh dentro del contenedor para 
-que tenga permisos de lectura, escritura y ejecución para todos los usuarios.
+# que tenga permisos de lectura, escritura y ejecución para todos los usuarios.
 RUN chmod 777 /usr/share/nginx/html/startcheckmig-1.0.23086.23.sh
 
 # Crea los directorios /usr/share/nginx/html/checkmig y /usr/share/nginx/html/checkmig/1.0.23086.23 dentro del contenedor.
@@ -47,14 +47,14 @@ RUN mkdir /usr/share/nginx/html/checkmig/1.0.23086.23
 COPY 1.0.23086.23 /usr/share/nginx/html/1.0.23086.23
 
 # Crea el directorio /etc/nginx/ssl dentro del contenedor y copia los archivos ser.key, ser.pem y checkmig.conf 
-a los respectivos directorios dentro del contenedor.
+# a los respectivos directorios dentro del contenedor.
 RUN mkdir /etc/nginx/ssl
 COPY ser.key /etc/nginx/ssl
 COPY ser.pem /etc/nginx/ssl
 COPY checkmig.conf /etc/nginx/conf.d
 
-# Copia los archivos kestrel-checkmig-1.0.23086.23.service y deployCheckmig.sh a los directorios /etc/systemd/system/ y /usr/share/nginx/html/, 
-respectivamente, dentro del contenedor
+# Copia los archivos kestrel-checkmig-1.0.23086.23.service y deployCheckmig.sh a los directorios 
+# /etc/systemd/system/ y /usr/share/nginx/html/, respectivamente, dentro del contenedor
 COPY kestrel-checkmig-1.0.23086.23.service /etc/systemd/system/
 COPY deployCheckmig.sh /usr/share/nginx/html/
 
@@ -81,7 +81,8 @@ CMD ["/sbin/init"]
 ## 3. <a name='subir-imagen-a-docker-hub'>Subir imagen a Docker.hub</a>
 Para subir una imagen a Docker Hub, puedes seguir los siguientes pasos:
 
-  1. Primero, asegúrate de tener una cuenta en [Docker Hub](https://hub.docker.com/). Si no tienes una, puedes crear una de forma gratuita.
+  1. Primero, asegúrate de tener una cuenta en [Docker Hub](https://hub.docker.com/). 
+     Si no tienes una, puedes crear una de forma gratuita.
 
   2. Construye la imagen de Docker que deseas subir en tu entorno local utilizando un archivo Dockerfile o cualquier otro método.
 
@@ -96,7 +97,8 @@ Para subir una imagen a Docker Hub, puedes seguir los siguientes pasos:
 
 Esto enviará la imagen a tu repositorio en Docker Hub.
 
-Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://docs.docker.com/docker-hub/) para obtener más detalles sobre cómo subir una imagen a Docker Hub.
+Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://docs.docker.com/docker-hub/) para obtener 
+más detalles sobre cómo subir una imagen a Docker Hub.
 
 
 ## 4. <a name='creación-de-imagen'>Creacion de Imagen</a>
@@ -129,20 +131,25 @@ Recuerda que puedes consultar la [documentación oficial de Docker Hub](https://
 
 ## 5. <a name='existente-en-dockerhub'>Como crear la imagen a partir de una imagen existente en Docker.Hub</a>
 
-   Debido a la infraestructura de Migracion Colombia, no fue posible crear la imagen de docker a partir del Dockerfile. Ya que aunque finalmente permitio la descarga de paquetes, una vez se requiere descargar directamente desde el contenedor se presenta un error, el cual se soluciona descargando y ejecutando la imagen previamente desplegada en [Docker Hub](https://hub.docker.com/).
+   Debido a la infraestructura de Migracion Colombia, no fue posible crear la imagen de docker a partir del Dockerfile.
+   Ya que aunque finalmente permitio la descarga de paquetes, una vez se requiere descargar directamente desde el contenedor 
+   se presenta un error, el cual se soluciona descargando y ejecutando la imagen previamente desplegada en [Docker Hub](https://hub.docker.com/).
       
 
    1. Utiliza el siguiente comando para descargar la imagen desde Docker Hub y ejecutar un contenedor basado en ella:  
      ``` docker run -it -d -P --privileged=true username/nombreimagen:versioon /sbin/init ```
      
-   2. Docker descargará automáticamente la imagen desde Docker Hub si no está presente en tu sistema local. Luego, iniciará un contenedor basado en esa imagen.
-      Si deseas obtener más información sobre cómo ejecutar imágenes en Docker, puedes consultar la [documentación oficial de Docker](https://docs.docker.com/engine/reference/commandline/run/).
+   2. Docker descargará automáticamente la imagen desde Docker Hub si no está presente en tu sistema local. Luego, iniciará un 
+   3. contenedor basado en esa imagen.
+      Si deseas obtener más información sobre cómo ejecutar imágenes en Docker, puedes consultar la 
+      [documentación oficial de Docker](https://docs.docker.com/engine/reference/commandline/run/).
 
 
 ## 6. <a name='configuración-de-iptables'>Configuracion de IPTABLES</a>
      iptables -t nat -A PREROUTING -i eno3 -p tcp -d 172.20.3.172 --dport 9090 -j DNAT --to 172.17.0.5:9090 
     
-  Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) del firewall de Linux.
+  Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) 
+  del firewall de Linux.
 
    1. iptables: Es el comando para manipular las reglas del firewall en sistemas basados en Linux.
    2. -t nat: Especifica que se está trabajando con la tabla "nat" que maneja las reglas de traducción de direcciones de red.
