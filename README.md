@@ -8,6 +8,7 @@
 - [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#existente-en-dockerhub)
 - [Configuración de IPTABLES](#configuración-de-iptables)
 - [Actualizar version](#actualizar)
+- [Verificar: Configuracion del Firewall](#confirewall)
 
 ## 1. <a name='dockerfile-del-proyecto'>Archivo Dockerfile</a>
 
@@ -137,7 +138,7 @@ más detalles sobre cómo subir una imagen a Docker Hub.
       
 
    1. Utiliza el siguiente comando para descargar la imagen desde Docker Hub y ejecutar un contenedor basado en ella:  
-     ``` docker run -it -d -P --privileged=true username/nombreimagen:versioon /sbin/init ```
+     ``` docker run -it -d -P 9090:9090 --privileged=true username/nombreimagen:versioon /sbin/init ```
      
    2. Docker descargará automáticamente la imagen desde Docker Hub si no está presente en tu sistema local. Luego, iniciará un 
    3. contenedor basado en esa imagen.
@@ -168,3 +169,9 @@ En resumen, este comando de iptables redirige los paquetes TCP que llegan a la i
   Basta con reemplazar en usr/share/nginx/html/ los archivos de la nueva version y correr los comandos:
   ``` systemctl restart kestrel-checkmig-1.0.23086.23 ```
   ``` systemctl restart nginx ```
+  
+ ## 8. <a name='confirewall'>Verificar: Configuracion del Firewall en el host</a>
+      
+  Pendiente por documentar:
+  ``` esperando ```
+  ``` esperando ```
