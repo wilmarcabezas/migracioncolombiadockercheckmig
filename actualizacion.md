@@ -34,7 +34,7 @@
      La carpeta oficial de la aplicacion es: <b>checkmig-1.0.23086.23</b><br>
      ``` mv fuente 1.0.23086.23 ```<br>
       <img src='https://migraciondata.interactuemos.com/actualizacioncheckmig/5.png'><br>
-  10. Ingrese a la carpeta wwwroot/Rotativa y Copie los archivos <b>libwkhtmltox.so  wkhtmltopdf</b> ubicados en Rotativa/Linux a la carpeta Rotativa <br>
+  10. Ingrese a la carpeta wwwroot/Rotativa y Copie los archivos <b>libwkhtmltox.so  wkhtmltopdf</b> ubicados en Rotativa/Linux a la carpeta Rotativa. Aplique los mismos permisos a la carpeta wwwroot/Rotativa.<br>
     ``` cp Linux/libwkhtmltox.so ```<br>
     ``` cp Linux/wkhtmltopdf ``` <br>
     <img src='https://migraciondata.interactuemos.com/actualizacioncheckmig/6.png'><br>
