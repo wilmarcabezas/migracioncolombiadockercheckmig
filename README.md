@@ -1,13 +1,16 @@
 # Proceso para despliegue de aplicación Checkmig II en Docker.
 
 ## 📋 Tabla de Contenido
-- [Archivo Dockerfile](#archivo-dockerfile)
-- [Dockerfile del proyecto](#dockerfile-del-proyecto)
-- [Subir imagen a Docker Hub](#subir-imagen-a-docker-hub)
-- [Creación de Imagen](#creación-de-imagen)
-- [Cómo crear una imagen a partir de una imagen existente en Docker Hub](#existente-en-dockerhub)
-- [Configuración de IPTABLES](#configuración-de-iptables)
-- [Actualizar version](#actualizar)
+- [Proceso para despliegue de aplicación Checkmig II en Docker.](#proceso-para-despliegue-de-aplicación-checkmig-ii-en-docker)
+  - [📋 Tabla de Contenido](#-tabla-de-contenido)
+  - [1. Archivo Dockerfile](#1-archivo-dockerfile)
+  - [2. Dockerfile del proyecto](#2-dockerfile-del-proyecto)
+  - [3. Subir imagen a Docker.hub](#3-subir-imagen-a-dockerhub)
+  - [4. Creacion de Imagen](#4-creacion-de-imagen)
+  - [5. Como crear la imagen a partir de una imagen existente en Docker.Hub](#5-como-crear-la-imagen-a-partir-de-una-imagen-existente-en-dockerhub)
+  - [6. Configuracion de IPTABLES](#6-configuracion-de-iptables)
+  - [7. Actualizar version](#7-actualizar-version)
+  - [8. Agregar nuevo PCM](#8-punto-de-control)
 
 ## 1. <a name='dockerfile-del-proyecto'>Archivo Dockerfile</a>
 
@@ -118,7 +121,7 @@ más detalles sobre cómo subir una imagen a Docker Hub.
    5. Entramos en el contenedor (cambiar contenedor_id por el id de la contenedor) 
     ``` docker exec -ti contenedor_id /bin/bash ```
 
-   6. Para reiniciar nginx:
+   6. Para reiniciar nginx:****
     ``` systemctl restart nginx ```
  
    7. Para iniciar o reiniciar kestrel-checkmig:
@@ -238,3 +241,27 @@ En resumen, este comando de iptables redirige los paquetes TCP que llegan a la i
         <li>Envio de email</li>
         <li>Envio del adjunto</li>
       </ul>
+
+## 8. <a name='punto-de-control'>Agregar nuevo PCM</a>
+     ```Environment=IdentificadoresPCM=1\x2c12\x2c13\x2c14\x2c15\x2c16\x2c18\x2c22\x2c50\x2c53\x2c57\x2c76\x2c77\x2c84\x2c94\x2c96```
+
+
+     
+    
+  Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) 
+  del firewall de Linux.
+
+   1. Dirijase al directorio /etc/systemd/system  
+        ``` cd /etc/systemd/system ```
+   2. Encuentre y abre el arcnivo: kestrel-checkmig-1.0.23086.23.service 
+        ``` nano kestrel-checkmig-1.0.23086.23.service ```
+   3. Encuentre la clave: Environment=IdentificadoresPCM y al final agregue el numero del PCM.
+      Este debe ser agregado bajo el formato <b>x2c</b>numeroPCM
+   4. Presione ctrl x y Enter para guardar.
+   5. Ahora ejecute los comandos para reiniciar la aplicacion:<br>
+    
+        ``` systemctl restart kestrel-checkmig-1.0.23086.23 ``` <br>
+        ``` systemctl restart nginx ``` <br>
+
+        ``` systemctl status kestrel-checkmig-1.0.23086.23 ``` <br>
+        ``` systemctl status nginx ```
