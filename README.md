@@ -245,11 +245,7 @@ En resumen, este comando de iptables redirige los paquetes TCP que llegan a la i
 ## 8. <a name='agregar-nuevo-pcm'>Agregar nuevo PCM</a>
      ```Environment=IdentificadoresPCM=1\x2c12\x2c13\x2c14\x2c15\x2c16\x2c18\x2c22\x2c50\x2c53\x2c57\x2c76\x2c77\x2c84\x2c94\x2c96```
 
-    
-  Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) 
-  del firewall de Linux.
-
-   1. Dirijase al directorio /etc/systemd/system  
+      1. Dirijase al directorio /etc/systemd/system  
         ``` cd /etc/systemd/system ```
    2. Encuentre y abre el arcnivo: kestrel-checkmig-1.0.23086.23.service 
         ``` nano kestrel-checkmig-1.0.23086.23.service ```
