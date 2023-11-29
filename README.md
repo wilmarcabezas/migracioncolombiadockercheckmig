@@ -1,6 +1,6 @@
 # Proceso para despliegue de aplicación Checkmig II en Docker.
 
-## 📋 Tabla de Contenido
+## 📋 Tabla de Contenido.
 - [Proceso para despliegue de aplicación Checkmig II en Docker.](#proceso-para-despliegue-de-aplicación-checkmig-ii-en-docker)
   - [📋 Tabla de Contenido](#-tabla-de-contenido)
   - [1. Archivo Dockerfile](#1-archivo-dockerfile)
@@ -10,7 +10,7 @@
   - [5. Como crear la imagen a partir de una imagen existente en Docker.Hub](#5-como-crear-la-imagen-a-partir-de-una-imagen-existente-en-dockerhub)
   - [6. Configuracion de IPTABLES](#6-configuracion-de-iptables)
   - [7. Actualizar version](#7-actualizar-version)
-  - [8. Agregar nuevo PCM](#8-punto-de-control)
+  - [8. Agregar nuevo PCM](#8-agregar-nuevo-pcm)
 
 ## 1. <a name='dockerfile-del-proyecto'>Archivo Dockerfile</a>
 
@@ -242,11 +242,9 @@ En resumen, este comando de iptables redirige los paquetes TCP que llegan a la i
         <li>Envio del adjunto</li>
       </ul>
 
-## 8. <a name='punto-de-control'>Agregar nuevo PCM</a>
+## 8. <a name='agregar-nuevo-pcm'>Agregar nuevo PCM</a>
      ```Environment=IdentificadoresPCM=1\x2c12\x2c13\x2c14\x2c15\x2c16\x2c18\x2c22\x2c50\x2c53\x2c57\x2c76\x2c77\x2c84\x2c94\x2c96```
 
-
-     
     
   Este comando de iptables configura una regla de redirección de paquetes en la tabla "nat" (Network Address Translation) 
   del firewall de Linux.
